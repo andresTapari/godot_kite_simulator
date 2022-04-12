@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://script/HUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/fuente/Gogh-ExtraBold.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fuente/Gogh-ExtraBoldItalic.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer"]
+margin_right = 171.0
+margin_bottom = 261.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MENU" type="VBoxContainer" parent="."]
+margin_right = 248.0
+margin_bottom = 261.0
+
+[node name="Label" type="Label" parent="MENU"]
+margin_right = 248.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 2 )
+text = "KITE SIMULATOR"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MENU"]
+margin_top = 46.0
+margin_right = 248.0
+margin_bottom = 74.0
+
+[node name="Label3" type="Label" parent="MENU/HBoxContainer"]
+margin_right = 69.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 1 )
+text = "Escala:"
+
+[node name="VSeparator" type="VSeparator" parent="MENU/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 73.0
+margin_right = 202.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="MENU/HBoxContainer"]
+margin_left = 206.0
+margin_right = 248.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 1 )
+text = "50%"
+align = 2
+
+[node name="HSlider" type="HSlider" parent="MENU"]
+margin_top = 78.0
+margin_right = 248.0
+margin_bottom = 94.0
+min_value = 10.0
+step = 10.0
+value = 50.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MENU"]
+margin_top = 98.0
+margin_right = 248.0
+margin_bottom = 126.0
+
+[node name="Label3" type="Label" parent="MENU/HBoxContainer2"]
+margin_right = 112.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 1 )
+text = "Nº Blancos:"
+
+[node name="VSeparator" type="VSeparator" parent="MENU/HBoxContainer2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 116.0
+margin_right = 236.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="MENU/HBoxContainer2"]
+margin_left = 240.0
+margin_right = 248.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 1 )
+text = "1"
+align = 2
+
+[node name="HSlider2" type="HSlider" parent="MENU"]
+margin_top = 130.0
+margin_right = 248.0
+margin_bottom = 146.0
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MENU"]
+margin_top = 150.0
+margin_right = 248.0
+margin_bottom = 178.0
+
+[node name="Label3" type="Label" parent="MENU/HBoxContainer3"]
+margin_right = 82.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 1 )
+text = "Tiempo:"
+
+[node name="VSeparator" type="VSeparator" parent="MENU/HBoxContainer3"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 86.0
+margin_right = 222.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="MENU/HBoxContainer3"]
+margin_left = 226.0
+margin_right = 248.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 1 )
+text = "10"
+align = 2
+
+[node name="HSlider3" type="HSlider" parent="MENU"]
+margin_top = 182.0
+margin_right = 248.0
+margin_bottom = 198.0
+min_value = 5.0
+max_value = 60.0
+value = 10.0
+
+[node name="Label4" type="Label" parent="MENU"]
+margin_top = 202.0
+margin_right = 248.0
+margin_bottom = 261.0
+custom_fonts/font = SubResource( 1 )
+text = "Click sobre \"0\"
+para comenzar."
+align = 1
+
+[connection signal="value_changed" from="MENU/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="MENU/HSlider2" to="." method="_on_HSlider2_value_changed"]
+[connection signal="value_changed" from="MENU/HSlider3" to="." method="_on_HSlider3_value_changed"]
