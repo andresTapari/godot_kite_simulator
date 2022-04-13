@@ -10,6 +10,7 @@ onready var score_dialog_aim    = get_node("CanvasLayer/SCORE_DIALOG/HBoxContain
 onready var score_dialog_target = get_node("CanvasLayer/SCORE_DIALOG/HBoxContainer3/blancos")
 onready var score_dialog_size = get_node("CanvasLayer/SCORE_DIALOG/HBoxContainer4/escala")
 onready var score_dialog_clicks = get_node("CanvasLayer/SCORE_DIALOG/HBoxContainer5/Clicks")
+
 var clock_s : float = 10
 var clock_ms: float = 00
 var score: int = 0
@@ -45,7 +46,6 @@ func _input(event):
 		clicks += 1
 		print(clicks)
 func spawn_targets(_value: int) -> void:
-
 	# Limpiamos la lista y eliminamos nodos anteriores
 	if !target_list.empty():
 		for element in target_list:
@@ -111,14 +111,13 @@ func _on_Timer_timeout():
 		clock_s -= 1
 		clock_ms = 99
 		if clock_s == 0:
-#			get_tree().paused = true
 			for element in target_list:
 				element.hide()
 			$CanvasLayer/timer_n_score.hide()
-			score_dialog_score.text = String(score)
+			score_dialog_score.text  = String(score)
 			score_dialog_clicks.text = String(clicks)
-			score_dialog_aim.text = String(stepify(float(score) / float(clicks) * 100, 0.01)) + "%"
+			score_dialog_aim.text    = String(stepify(float(score) / float(clicks) * 100, 0.01)) + "%"
 			score_dialog_target.text = String(n_target)
-			score_dialog_size.text = String(_scale * 100) + "%"
+			score_dialog_size.text   = String(_scale * 100) + "%"
 			$CanvasLayer/SCORE_DIALOG.show()
 	timer_label.text = String(clock_s) + ":" +String(clock_ms)
